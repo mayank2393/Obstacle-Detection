@@ -1,23 +1,100 @@
-# Simple Object Detection using Convolutional Neural Network
-Object detection is one of the fundamental problem in computer vision. Given an image, the goal is to detect the objects within
-the image, by generating a rectangular box (bounding box) around the objects. Obviously, there can be multiple objects in an 
-image of same or different classes. Object detection deals with identifying each of these objects. However, in this project 
-we are just concerned with a single object detection.
+# 🧠 Object Detection Using CNN and RCNN
 
-## Model Architecture
-Our model consists of three convolutional layers and two fully connected layers. A kernel of size 5 with stride 1 is used in 
-each of the convolutional layers and rectified linear units, ReLU, is used as activation function. A max pooling layer of filter 
-size 2 with stride 2 is employed after each of the first two convolutional layers. 
+### 📍 National Institute of Technology, Kurukshetra  
+**Department of Computer Engineering**  
+**Team Members:**  
+- Kushagra Gupta (Roll no: 12213028)  
+- Mayank Tripathi (Roll no: 12213037)  
+- Nikhil Verma (Roll no: 12213029)  
 
-## Training
-We have trained the network for 50 epoch using stochastic gradient descent (SGD). For the first 30 epoch, the learning rate is 
-set to 0.000001 and after that it is reduced to 0.0000001. We have also employed a momentum of 0.9. For regularization, dropout
-(with p=0.5) is used.
+---
 
-## Dataset
-The dataset we have used here is very simple and is generated in python. Each image is 100x100x1 and has a small rectangular 
-box of random size and shape and at random positions. For background the color value is set to 0 and for box it is set to 255. 
-The training dataset has 1000 of such images and the test dataset consists of 200 images. The corresponding ground truth 
-information are stored in separate file.
+## 📌 Introduction
 
-To use the pretrained model, download the trained model from [this](https://1drv.ms/u/s!AoRMuqHDZuP8iyBdb4DMllcpqhil) link.
+Object detection is a crucial task in computer vision, enabling machines to identify and localize objects within an image. This project compares two deep learning approaches for object detection:
+
+- **CNN (Convolutional Neural Network)**: Fast and efficient for real-time applications.
+- **RCNN (Region-based CNN)**: More accurate due to region proposals but slower in execution.
+
+The goal is to understand the strengths and weaknesses of both architectures in bounding box prediction tasks.
+
+---
+
+## 🏗️ Model Architectures
+
+### ✅ CNN Architecture
+- **Convolutional Layers**:
+  - Conv1: 32 filters, kernel size 5  
+  - Conv2: 64 filters, kernel size 5  
+  - Conv3: 128 filters, kernel size 5  
+- **Fully Connected Layers**:
+  - Dense layer with 2046 neurons  
+  - Output layer with 4 neurons (bounding box coordinates)  
+- **Dropout**: 50% after the first fully connected layer
+
+### ✅ RCNN Architecture
+- **Region Proposal Network (RPN)**: Generates object region proposals  
+- **Feature Extraction**: Convolutional layers + adaptive average pooling  
+- **Fully Connected Layers**: Followed by dropout and ReLU activations for bounding box regression  
+
+---
+
+## ⚙️ Methodology
+
+### 🏋️‍♂️ Training
+- **Loss Function**: Mean Squared Error (MSE)
+- **Optimizer**: Stochastic Gradient Descent (SGD) with momentum = 0.9
+- **Learning Rate**: 1e-6 with decay every 30 epochs
+- **Epochs**: 50
+
+### 🧪 Testing
+- Models evaluated using Intersection-over-Union (IoU) for predicted vs ground-truth bounding boxes
+
+### 📁 Dataset
+- **Training Set**: 1,000 labeled images  
+- **Test Set**: 200 labeled images  
+
+---
+
+## 📊 Results
+
+| Metric                  | CNN Model     | RCNN Model    |
+|------------------------|---------------|---------------|
+| **IoU (Average Overlap)** | 0.76          | 0.84          |
+| **Training Time**       | Fast          | Slow          |
+| **Inference Speed**     | Fast          | Slow          |
+| **Model Complexity**    | Low           | High          |
+
+> RCNN provides better accuracy, while CNN offers faster performance suitable for real-time applications.
+
+---
+
+## 🔍 Comparative Analysis
+
+| Metric              | CNN        | RCNN       |
+|---------------------|------------|------------|
+| Overlap Score       | 0.3730     | 0.4372     |
+| Training Time       | ✅ Faster  | ❌ Slower  |
+| Inference Speed     | ✅ Faster  | ❌ Slower  |
+| Model Complexity    | Low        | High       |
+
+---
+
+## ✅ Conclusion
+
+- **RCNN** is suitable when accuracy is a top priority (e.g., offline processing).  
+- **CNN** is ideal for scenarios requiring speed (e.g., real-time detection).  
+- Both models have proven effective, and the choice depends on application constraints.
+
+---
+
+## 🚀 Future Work
+
+- ⚡ **Optimize RCNN**: Implement Fast R-CNN or Faster R-CNN  
+- 🧠 **Data Augmentation**: Improve model generalization with rotation, cropping, flipping, etc.  
+- 🔀 **Hybrid Models**: Combine region proposals from RCNN with CNN refinement for performance gains  
+
+---
+
+## 🗂️ Project Structure
+
