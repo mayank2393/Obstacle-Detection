@@ -1,14 +1,5 @@
 # 🧠 Object Detection Using CNN and RCNN
 
-### 📍 National Institute of Technology, Kurukshetra  
-**Department of Computer Engineering**  
-**Team Members:**  
-- Kushagra Gupta (Roll no: 12213028)  
-- Mayank Tripathi (Roll no: 12213037)  
-- Nikhil Verma (Roll no: 12213029)  
-
----
-
 ## 📌 Introduction
 
 Object detection is a crucial task in computer vision, enabling machines to identify and localize objects within an image. This project compares two deep learning approaches for object detection:
