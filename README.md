@@ -51,7 +51,7 @@ The goal is to understand the strengths and weaknesses of both architectures in 
 
 | Metric                  | CNN Model     | RCNN Model    |
 |------------------------|---------------|---------------|
-| **IoU (Average Overlap)** | 0.76          | 0.84          |
+| **IoU (Average Overlap)** | 0.37          | 0.43          |
 | **Training Time**       | Fast          | Slow          |
 | **Inference Speed**     | Fast          | Slow          |
 | **Model Complexity**    | Low           | High          |
