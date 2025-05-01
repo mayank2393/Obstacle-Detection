@@ -85,7 +85,5 @@ The goal is to understand the strengths and weaknesses of both architectures in 
 - 🧠 **Data Augmentation**: Improve model generalization with rotation, cropping, flipping, etc.  
 - 🔀 **Hybrid Models**: Combine region proposals from RCNN with CNN refinement for performance gains  
 
----
 
-## 🗂️ Project Structure
 
