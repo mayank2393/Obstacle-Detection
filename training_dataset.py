@@ -12,11 +12,6 @@ class training_dataset(Dataset):
 
         self.len = len(trainX)
 
-        # testX = np.asarray(pd.read_csv('./Dataset/testData.csv', sep=',', header=None))
-        # testY = np.asarray(pd.read_csv('./Dataset/ground-truth-test.csv', sep=',', header=None))
-        # self.features_test = torch.Tensor(testX)
-        # self.groundTruth_test = torch.Tensor(testY)
-
     def __getitem__(self, item):
         return self.features_train[item], self.groundTruth_train[item]
 
